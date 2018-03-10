@@ -1,5 +1,5 @@
 <template>
-  <button><slot></slot></button>
+  <button @click="handleClick"><slot></slot></button>
 </template>
 
 <style scoped>
@@ -9,7 +9,12 @@
 
 <script>
 export default {
-  name: 'mac-push-buttons'
+  name: 'mac-push-buttons',
+  methods: {
+    handleClick(e) {
+      this.$emit('click', e)
+    }
+  }
 }
 </script>
 

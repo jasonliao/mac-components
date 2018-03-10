@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img style="width: 700px" src="./../logo/mac-components.png">
-    <mac-push-buttons>lalala</mac-push-buttons>
+    <div>
+      <mac-push-buttons @click="handleClick">I am a push button without style</mac-push-buttons>
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,11 @@ export default {
   name: 'app',
   components: {
     'mac-push-buttons': PushButtons
+  },
+  methods: {
+    handleClick(e) {
+      alert('I am a push button without style')
+    }
   }
 }
 </script>
