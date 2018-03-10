@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img style="width: 700px" src="./../logo/mac-components.png">
+    <mac-push-buttons>lalala</mac-push-buttons>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PushButtons from './components/buttons/PushButtons.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    'mac-push-buttons': PushButtons
   }
 }
 </script>
