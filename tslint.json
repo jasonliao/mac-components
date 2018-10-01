@@ -1,0 +1,11 @@
+{
+  "extends": [],
+  "defaultSeverity": "warning",
+  "linterOptions": {
+    "exclude": [
+      "scripts/**/*.js",
+      "webpack/**/*.js",
+      "node_modules/**/*.ts"
+    ]
+  }
+}

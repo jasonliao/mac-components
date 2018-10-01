@@ -1,0 +1,27 @@
+.push-button {
+  box-sizing: border-box;
+  color: rgb(38, 38, 38);
+  border: 1px solid rgb(200, 200, 200);
+  background: #fff;
+  border-radius: 4px;
+}
+
+.push-button__on {
+  border: 1px solid rgb(200, 200, 200);
+  background: #fff;
+}
+
+.push-button__regular {
+  padding: 1px 14px;
+  font-size: 13px;
+}
+
+.push-button__small {
+  padding: 1px 14px;
+  font-size: 11px;
+}
+
+.push-button__mini {
+  padding: 1px 14px;
+  font-size: 9px;
+}

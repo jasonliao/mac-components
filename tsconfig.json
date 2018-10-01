@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es2015",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "noEmitOnError": false,
+    "moduleResolution": "node",
+    "lib": ["es2015", "dom"]
+  },
+  "exclude": [
+    "node_modules",
+    "webpack",
+    "scripts"
+  ],
+  "include": ["lib"]
+}

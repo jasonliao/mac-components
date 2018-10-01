@@ -1,0 +1,8 @@
+node_modules
+.svn
+build
+.DS_Store
+npm-debug.log
+yarn-error.log
+.idea
+.vscode
