@@ -4,11 +4,35 @@
   border: 1px solid rgb(200, 200, 200);
   background: #fff;
   border-radius: 4px;
+  outline: none;
+}
+
+.push-button:active {
+  background: linear-gradient(to bottom, rgb(75, 145, 255), 55%, rgb(2, 92, 228));
+  color: rgb(222, 234, 253);
+  border: 1px solid rgb(69, 142, 251);
 }
 
 .push-button__on {
-  border: 1px solid rgb(200, 200, 200);
-  background: #fff;
+  background: linear-gradient(to bottom, rgb(107, 165, 261), 55%, rgb(4, 107, 255));
+  border: 1px solid rgb(107, 165, 261);
+  color: #fff;
+  font-weight: 500
+}
+
+// TODO: use ::after to add gradient border `.push-button__on` and `.push-button:action`
+// https://stackoverflow.com/questions/5706963/possible-to-use-border-radius-together-with-a-border-image-which-has-a-gradient
+
+.push-button__disabled {
+  background: rgb(246, 246, 246);
+  border: 1px solid rgb(213, 213, 213);
+  color: rgb(190, 190, 190);
+}
+
+.push-button.push-button__disabled:active {
+  background: rgb(246, 246, 246);
+  border: 1px solid rgb(213, 213, 213);
+  color: rgb(190, 190, 190);
 }
 
 .push-button__regular {

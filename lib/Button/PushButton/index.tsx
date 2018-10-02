@@ -7,6 +7,7 @@ interface Props {
   type?: string
   disabled?: boolean
   onClick: (e: React.MouseEvent) => void
+  style?: object
 }
 
 export default class PushButton extends React.Component<Props, any> {
@@ -22,11 +23,12 @@ export default class PushButton extends React.Component<Props, any> {
   } 
 
   render() {
-    const { text, size, disabled } = this.props
+    const { text, size, disabled, type, style } = this.props
     return (
       <button
         onClick={this.handleClick}
-        className={`push-button push-button__${size} ${disabled ? 'push-button__disabled' : ''}`}
+        className={`push-button push-button__${size} ${disabled ? 'push-button__disabled' : ''} ${type === 'on' ? 'push-button__on' : ''}`}
+        style={{ ...style }}
       >
         { text }
       </button>
