@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import './index.scss'
 
 interface Props {
@@ -27,7 +28,14 @@ export default class PushButton extends React.Component<Props, any> {
     return (
       <button
         onClick={this.handleClick}
-        className={`push-button push-button__${size} ${disabled ? 'push-button__disabled' : ''} ${type === 'on' ? 'push-button__on' : ''}`}
+        className={classNames(
+          'push-button',
+          `push-button__${size}`,
+          { 
+            'push-button__disabled': disabled,
+            'push-button__on': type === 'on'
+          }
+        )}
         style={{ ...style }}
       >
         { text }

@@ -42,7 +42,7 @@ describe('PushButton Component', () => {
 
     wrapper.simulate('click')
 
-    expect(hasClass).toBe(true) && expect(props.onClick).toHaveBeenCalledTimes(1)
+    expect(hasClass).toBe(true)
   })
 
   it('button clicked', () => {
