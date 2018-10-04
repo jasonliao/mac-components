@@ -16,8 +16,24 @@
 .push-button__on {
   background: linear-gradient(to bottom, rgb(107, 165, 261), 55%, rgb(4, 107, 255));
   border: 1px solid rgb(107, 165, 261);
+  /*
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(107, 165, 261) rgb(107, 165, 261) rgb(107, 165, 261);
+  */
   color: #fff;
-  font-weight: 500
+  font-weight: 500;
+  /*
+  &::after {
+    position: absolute;
+    top: -1px; bottom: -1px;
+    left: -1px; right: -1px;
+    background: linear-gradient(red, blue);
+    content: '';
+    z-index: -1;
+    border-radius: 4px;
+  }
+  */
 }
 
 // TODO: use ::after to add gradient border `.push-button__on` and `.push-button:action`
