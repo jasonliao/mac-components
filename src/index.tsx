@@ -5,6 +5,7 @@ import { PushButton } from '../lib/index'
 const App = () => {
   return (
     <div>
+      <h1>Push Button</h1>
       <PushButton text="Push Button" onClick={() => { }} />
       <br />
       <br />
