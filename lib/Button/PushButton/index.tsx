@@ -33,7 +33,7 @@ export default class PushButton extends React.Component<Props, any> {
           `push-button__${size}`,
           { 
             'push-button__disabled': disabled,
-            'push-button__on': type === 'on'
+            'push-button__on': type === 'on' && !disabled
           }
         )}
         style={{ ...style }}

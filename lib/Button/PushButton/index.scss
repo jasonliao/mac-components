@@ -3,7 +3,7 @@
   color: #000;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(215, 215, 215) rgb(211, 211, 211) rgb(191, 191, 191);
+  border-color: #d7d7d7 #d3d3d3 #bfbfbf;
   background: #fff;
   border-radius: 4px;
   outline: none;
@@ -12,14 +12,14 @@
 }
 
 .push-button:active {
-  background: linear-gradient(to bottom, rgb(75, 145, 255), 55%, rgb(2, 92, 228));
-  color: rgb(222, 234, 253);
+  background: linear-gradient(to bottom, #4b91ff, 55%, #025ce4);
+  color: #deeafd;
   border: none;
   padding: 2px 15px;
 }
 
 .push-button__on {
-  background: linear-gradient(to bottom, rgb(107, 165, 261), 55%, rgb(4, 107, 255));
+  background: linear-gradient(to bottom, #6ba5ff, 55%, #046bff);
   border: none;
   padding: 2px 15px;
   color: #fff;
@@ -49,11 +49,11 @@
 
 .push-button.push-button__disabled,
 .push-button.push-button__disabled:active {
-  background: rgb(246, 246, 246);
+  background: #f6f6f6;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(222, 222, 222) rgb(223, 223, 223) rgb(213, 213, 213);
-  color: rgb(190, 190, 190);
+  border-color: #e0e0e0 #dfdfdf #d5d5d5;
+  color: #bebebe;
   padding: 1px 14px;
 }
 

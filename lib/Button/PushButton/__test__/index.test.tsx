@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
+import * as renderer from 'react-test-renderer'
 
 import PushButton from '../index'
 
@@ -60,5 +61,17 @@ describe('PushButton Component', () => {
     wrapper.simulate('click')
 
     expect(props.onClick).toHaveBeenCalledTimes(0)
+  })
+
+  it('match the snapshot', () => {
+    const props = {
+      ...nessProps,
+      type: 'on',
+      size: 'small',
+      style: { width: '100px' }
+    }
+    const tree = renderer.create(<PushButton { ...props } />).toJSON()
+
+    expect(tree).toMatchSnapshot()
   })
 })
