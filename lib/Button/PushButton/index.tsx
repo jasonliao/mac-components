@@ -3,32 +3,38 @@ import classNames from 'classnames'
 import './index.scss'
 
 interface Props {
-  text: string
+  text?: string
   size?: string
   type?: string
   disabled?: boolean
-  onClick: (e: React.MouseEvent) => void
   style?: object
+  className?: string
+  onClick?: (e: React.MouseEvent) => void
 }
 
 export default class PushButton extends React.Component<Props, any> {
   static defaultProps = {
+    text: '',
     size: 'regular',
     type: 'off',
-    disabled: false
+    disabled: false,
+    style: {},
+    className: '',
+    onClick: () => {}
   }
 
-  handleClick = (e: React.MouseEvent): void => {
+  handleClick = (e: React.MouseEvent) => {
     const { onClick, disabled } = this.props
     !disabled && onClick(e)
   } 
 
   render() {
-    const { text, size, disabled, type, style } = this.props
+    const { text, size, disabled, type, style, className } = this.props
     return (
       <button
         onClick={this.handleClick}
         className={classNames(
+          className,
           'push-button',
           `push-button__${size}`,
           { 

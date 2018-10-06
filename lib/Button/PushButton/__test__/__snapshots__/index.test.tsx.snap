@@ -2,7 +2,7 @@
 
 exports[`PushButton Component match the snapshot 1`] = `
 <button
-  className="push-button push-button__small push-button__on"
+  className="custom_classname push-button push-button__small push-button__on"
   onClick={[Function]}
   style={
     Object {

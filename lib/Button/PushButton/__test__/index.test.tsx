@@ -5,13 +5,8 @@ import * as renderer from 'react-test-renderer'
 import PushButton from '../index'
 
 describe('PushButton Component', () => {
-  const nessProps = {
-    text: 'PushButton',
-    onClick: () => {}
-  }
-
   it('render text', () => {
-    const props = { ...nessProps }
+    const props = { text: 'PushButton' }
     const wrapper = shallow(<PushButton { ...props } />)
 
     const text = wrapper.find('button').text()
@@ -19,7 +14,7 @@ describe('PushButton Component', () => {
   })
 
   it('render with mini size', () => {
-    const props = { ...nessProps, size: 'mini' }
+    const props = { size: 'mini' }
     const wrapper = shallow(<PushButton { ...props } />)
     const hasClass = wrapper.find('.push-button').hasClass(`push-button__${props.size}`)
 
@@ -27,7 +22,7 @@ describe('PushButton Component', () => {
   })
 
   it('render with type', () => {
-    const props = { ...nessProps, type: 'on' }
+    const props = { type: 'on' }
 
     const wrapper = shallow(<PushButton { ...props } />)
     const hasClass = wrapper.find('.push-button').hasClass(`push-button__${props.type}`)
@@ -36,7 +31,7 @@ describe('PushButton Component', () => {
   })
 
   it('render disabled button', () => {
-    const props = { ...nessProps, disabled: true }
+    const props = { disabled: true }
 
     const wrapper = shallow(<PushButton { ...props } />)
     const hasClass = wrapper.find('.push-button').hasClass(`push-button__disabled`)
@@ -47,7 +42,7 @@ describe('PushButton Component', () => {
   })
 
   it('button clicked', () => {
-    const props = { ...nessProps, onClick: jest.fn() }
+    const props = { onClick: jest.fn() }
     const wrapper = shallow(<PushButton { ...props } />)
     wrapper.simulate('click')
 
@@ -55,7 +50,7 @@ describe('PushButton Component', () => {
   })
 
   it('disabled button clicked', () => {
-    const props = { ...nessProps, disabled: true, onClick: jest.fn() }
+    const props = { disabled: true, onClick: jest.fn() }
 
     const wrapper = shallow(<PushButton { ...props } />)
     wrapper.simulate('click')
@@ -65,10 +60,11 @@ describe('PushButton Component', () => {
 
   it('match the snapshot', () => {
     const props = {
-      ...nessProps,
+      text: 'PushButton',
       type: 'on',
       size: 'small',
-      style: { width: '100px' }
+      style: { width: '100px' },
+      className: 'custom_classname'
     }
     const tree = renderer.create(<PushButton { ...props } />).toJSON()
 
