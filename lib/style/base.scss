@@ -1,0 +1,19 @@
+$font_size_regular: 13px;
+$font_size_small: 11px;
+$font_size_mini: 9px;
+
+$font_color_disabled: #bebebe;
+
+$primary_blue: #3588fd;
+$active_blue: #066afc;
+
+:export {
+  font_size_regular: $font_size_regular;
+  font_size_small: $font_size_small;
+  font_size_mini: $font_size_mini;
+  
+  font_color_disabled: $font_color_disabled;
+
+  primary_blue: $primary_blue;
+  active_blue: $active_blue;
+}

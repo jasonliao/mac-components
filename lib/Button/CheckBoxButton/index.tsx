@@ -3,24 +3,22 @@ import classNames from 'classnames'
 
 import './index.scss'
 
-interface Props {
-  label?: string
-  size?: string
+export interface CheckBoxButtonProps {
+  size?: 'regular' | 'small' | 'mini'
   checked?: boolean
-  position?: string
+  position?: 'left' | 'right' | 'above' | 'below'
   style?: object
   className?: string
   disabled?: boolean
-  onChange?: (e: React.MouseEvent, checked: boolean) => void
+  onChange?: (checked: boolean, e: React.MouseEvent) => void
 }
 
 interface State {
   checked: boolean
 }
 
-export default class CheckBoxButton extends React.Component<Props, State> {
+export default class CheckBoxButton extends React.Component<CheckBoxButtonProps, State> {
   static defaultProps = {
-    label: '',
     size: 'regular',
     position: 'left',
     style: {},
@@ -41,7 +39,7 @@ export default class CheckBoxButton extends React.Component<Props, State> {
       if (checked === undefined) {
         this.setState({ checked: !hasChecked })
       }
-      onChange(e, !hasChecked)
+      onChange(!hasChecked, e)
     }
   }
 
@@ -55,22 +53,26 @@ export default class CheckBoxButton extends React.Component<Props, State> {
   }
 
   render() {
-    const { size, label, disabled } = this.props
+    const { size, disabled, className, style, children } = this.props
     const hasChecked = this.hasChecked()
 
     return (
-      <div className={classNames(
-        'checkbox-button',
-        `checkbox-button__${size}`,
-        {
-          'checkbox-button__checked': hasChecked,
-          'checkbox-button__disabled': disabled
+      <div className={
+          classNames(
+            className,
+            'checkbox-button',
+            `checkbox-button__${size}`,
+            {
+              'checkbox-button__checked': hasChecked,
+              'checkbox-button__disabled': disabled
+            }
+          )
         }
-      )}
-      onClick={this.handleClick}
+        onClick={this.handleClick}
+        style={style}
       >
         <i className="checkbox-button__box"></i>
-        <span className="checkbox-button__label">{ label }</span>
+        <span className="checkbox-button__label">{ children }</span>
       </div>
     )
   }

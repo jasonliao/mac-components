@@ -2,19 +2,19 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import * as renderer from 'react-test-renderer'
 
-import PushButton from '../index'
+import PushButton, { PushButtonProps } from '../index'
 
 describe('PushButton Component', () => {
   it('render text', () => {
-    const props = { text: 'PushButton' }
-    const wrapper = shallow(<PushButton { ...props } />)
+    const content = 'PushButton'
+    const wrapper = shallow(<PushButton>{ content }</PushButton> )
 
     const text = wrapper.find('button').text()
-    expect(text).toBe(props.text)
+    expect(text).toBe(content)
   })
 
   it('render with mini size', () => {
-    const props = { size: 'mini' }
+    const props: PushButtonProps = { size: 'mini', }
     const wrapper = shallow(<PushButton { ...props } />)
     const hasClass = wrapper.find('.push-button').hasClass(`push-button__${props.size}`)
 
@@ -22,7 +22,7 @@ describe('PushButton Component', () => {
   })
 
   it('render with type', () => {
-    const props = { type: 'on' }
+    const props: PushButtonProps = { type: 'on' }
 
     const wrapper = shallow(<PushButton { ...props } />)
     const hasClass = wrapper.find('.push-button').hasClass(`push-button__${props.type}`)
@@ -59,14 +59,14 @@ describe('PushButton Component', () => {
   })
 
   it('match the snapshot', () => {
+    const content = 'PushButton'
     const props = {
-      text: 'PushButton',
       type: 'on',
       size: 'small',
       style: { width: '100px' },
       className: 'custom_classname'
-    }
-    const tree = renderer.create(<PushButton { ...props } />).toJSON()
+    } as PushButtonProps
+    const tree = renderer.create(<PushButton { ...props } >{ content }</PushButton>).toJSON()
 
     expect(tree).toMatchSnapshot()
   })

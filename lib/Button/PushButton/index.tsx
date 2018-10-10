@@ -2,19 +2,17 @@ import * as React from 'react'
 import classNames from 'classnames'
 import './index.scss'
 
-interface Props {
-  text?: string
-  size?: string
-  type?: string
+export interface PushButtonProps {
+  size?: 'regular' | 'small' | 'mini'
+  type?: 'on' | 'off'
   disabled?: boolean
   style?: object
   className?: string
   onClick?: (e: React.MouseEvent) => void
 }
 
-export default class PushButton extends React.Component<Props, any> {
+export default class PushButton extends React.Component<PushButtonProps, any> {
   static defaultProps = {
-    text: '',
     size: 'regular',
     type: 'off',
     disabled: false,
@@ -29,7 +27,7 @@ export default class PushButton extends React.Component<Props, any> {
   } 
 
   render() {
-    const { text, size, disabled, type, style, className } = this.props
+    const { size, disabled, type, style, className, children } = this.props
     return (
       <button
         onClick={this.handleClick}
@@ -42,9 +40,9 @@ export default class PushButton extends React.Component<Props, any> {
             'push-button__on': type === 'on' && !disabled
           }
         )}
-        style={{ ...style }}
+        style={style}
       >
-        { text }
+        { children }
       </button>
     )
   }
