@@ -25,7 +25,7 @@ const App = () => {
       <div>
         <h1>Check Box Button</h1>
         <CheckBoxButton style={CheckBoxButtonStyle}>Check</CheckBoxButton>
-        <CheckBoxButton size="small" style={CheckBoxButtonStyle} checked={false}>Check</CheckBoxButton>
+        <CheckBoxButton size="small" style={CheckBoxButtonStyle}>Check</CheckBoxButton>
         <CheckBoxButton size="mini" style={CheckBoxButtonStyle}>Check</CheckBoxButton>
         <CheckBoxButton disabled style={CheckBoxButtonStyle}>Check</CheckBoxButton>
       </div>

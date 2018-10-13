@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PushButton Component match the snapshot 1`] = `
+exports[`PushButton Component [SNAPSHOT] match the snapshot 1`] = `
 <button
   className="custom_classname push-button push-button__small push-button__on"
   onClick={[Function]}

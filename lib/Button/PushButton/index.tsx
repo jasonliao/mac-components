@@ -12,7 +12,7 @@ export interface PushButtonProps {
 }
 
 export default class PushButton extends React.Component<PushButtonProps, any> {
-  static defaultProps = {
+  static defaultProps: PushButtonProps = {
     size: 'regular',
     type: 'off',
     disabled: false,

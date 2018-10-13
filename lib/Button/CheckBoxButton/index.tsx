@@ -5,8 +5,8 @@ import './index.scss'
 
 export interface CheckBoxButtonProps {
   size?: 'regular' | 'small' | 'mini'
-  checked?: boolean
-  position?: 'left' | 'right' | 'above' | 'below'
+  checked?: boolean | undefined
+  // position?: 'left' | 'right' | 'above' | 'below'
   style?: object
   className?: string
   disabled?: boolean
@@ -18,16 +18,17 @@ interface State {
 }
 
 export default class CheckBoxButton extends React.Component<CheckBoxButtonProps, State> {
-  static defaultProps = {
+  static defaultProps: CheckBoxButtonProps = {
     size: 'regular',
-    position: 'left',
+    checked: undefined,
+    // position: 'left',
     style: {},
     className: '',
     disabled: false,
     onChange: () => {}
   }
 
-  state = {
+  state: State = {
     checked: false
   }
 
