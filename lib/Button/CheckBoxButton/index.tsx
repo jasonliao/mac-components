@@ -5,7 +5,7 @@ import './index.scss'
 
 export interface CheckBoxButtonProps {
   size?: 'regular' | 'small' | 'mini'
-  checked?: boolean | undefined
+  checked?: boolean
   // position?: 'left' | 'right' | 'above' | 'below'
   style?: object
   className?: string
@@ -17,6 +17,7 @@ interface State {
   checked: boolean
 }
 
+// TODO: add mixed status
 export default class CheckBoxButton extends React.Component<CheckBoxButtonProps, State> {
   static defaultProps: CheckBoxButtonProps = {
     size: 'regular',
@@ -25,7 +26,7 @@ export default class CheckBoxButton extends React.Component<CheckBoxButtonProps,
     style: {},
     className: '',
     disabled: false,
-    onChange: () => {}
+    onChange: undefined
   }
 
   state: State = {
@@ -40,7 +41,7 @@ export default class CheckBoxButton extends React.Component<CheckBoxButtonProps,
       if (checked === undefined) {
         this.setState({ checked: !hasChecked })
       }
-      onChange(!hasChecked, e)
+      onChange && onChange(!hasChecked, e)
     }
   }
 
@@ -73,6 +74,11 @@ export default class CheckBoxButton extends React.Component<CheckBoxButtonProps,
         style={style}
       >
         <i className="checkbox-button__box"></i>
+        <svg viewBox="0 0 8 8">
+          <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+            <polyline stroke="#fff" strokeWidth="1.5" points="1 5 3.25 7.5 7.5 1"></polyline>
+          </g>
+        </svg>
         <span className="checkbox-button__label">{ children }</span>
       </div>
     )

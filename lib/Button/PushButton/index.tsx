@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
+
 import './index.scss'
 
 export interface PushButtonProps {
@@ -18,12 +19,12 @@ export default class PushButton extends React.Component<PushButtonProps, any> {
     disabled: false,
     style: {},
     className: '',
-    onClick: () => {}
+    onClick: undefined
   }
 
   handleClick = (e: React.MouseEvent) => {
     const { onClick, disabled } = this.props
-    !disabled && onClick(e)
+    !disabled && onClick && onClick(e)
   } 
 
   render() {

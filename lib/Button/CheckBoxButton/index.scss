@@ -13,11 +13,15 @@
     box-shadow: inset 0px 0.4px 0.1px 0px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     margin-right: 10px;
-    position: relative;
   }
 
   .checkbox-button__label {
     display: inline-block;
+  }
+
+  svg {
+    display: none;
+    position: absolute;
   }
 }
 
@@ -30,30 +34,18 @@
 
 .checkbox-button__checked {
   .checkbox-button__box {
-    background: #3588fd;
+    background: #3B99FC;
     border: none;
-
-    &::after {
-      content: '\2713';
-      color: #fff;
-      font-size: 0.9em;
-      position: absolute;
-      left: 0.2em;
-      top: 0.1em;
-      transform: rotate(-10deg);
-    }
   }
-}
 
-.checkbox-button__checked.checkbox-button__small {
-  .checkbox-button__box::after {
-    font-size: 0.88em;
+  svg {
+    display: block;
   }
 }
 
 .checkbox-button__checked:active {
   .checkbox-button__box {
-    background: #066afc;
+    background: #0075DB;
     border: none;
   }
 }
@@ -75,6 +67,12 @@
     width: 14px;
     height: 14px;
   }
+
+  svg {
+    width: 8px;
+    height: 8px;
+    transform: translateX(3px);
+  }
 }
 
 .checkbox-button__small {
@@ -82,6 +80,12 @@
   .checkbox-button__box {
     width: 12px;
     height: 12px;
+  }
+
+  svg {
+    width: 7px;
+    height: 7px;
+    transform: translate(2.5px, -0.5px);
   }
 }
 
@@ -91,5 +95,11 @@
     border-radius: 3px;
     width: 11px;
     height: 11px;
+  }
+
+  svg {
+    width: 6px;
+    height: 6px;
+    transform: translate(2.5px, 0.5px);
   }
 }
