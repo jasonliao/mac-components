@@ -1,0 +1,32 @@
+.round-rect-button {
+  box-sizing: border-box;
+  color: #222831;
+  border: 1px solid #a5a5a5;
+  background: #ececec;
+  border-radius: 4px;
+  outline: none;
+  padding: 1px 14px;
+}
+
+.round-rect-button:active {
+  background: #d4d4d4;
+}
+
+.round-rect-button.round-rect-button__disabled,
+.round-rect-button.round-rect-button__disabled:active {
+  background: #ececec;
+  border: 1px solid #c8c8c8;
+  color: #c8c8c8;
+}
+
+.round-rect-button__regular {
+  font-size: 13px;
+}
+
+.round-rect-button__small {
+  font-size: 11px;
+}
+
+.round-rect-button__mini {
+  font-size: 9px;
+}

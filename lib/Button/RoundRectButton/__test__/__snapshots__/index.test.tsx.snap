@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoundRectButton Component [SNAPSHOT] match the snapshot 1`] = `
+<button
+  className="custom_classname round-rect-button round-rect-button__small"
+  onClick={[Function]}
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+>
+  Textured Round Button
+</button>
+`;
