@@ -1,47 +1,38 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
+import Button, { ButtonProps } from '../BaseComponents/Button'
+
 import './index.scss'
 
-export interface PushButtonProps {
-  size?: 'regular' | 'small' | 'mini'
+export interface PushButtonProps extends ButtonProps {
   type?: 'on' | 'off'
-  disabled?: boolean
-  style?: object
-  className?: string
-  onClick?: (e: React.MouseEvent) => void
 }
 
-export default class PushButton extends React.Component<PushButtonProps, any> {
+export default class PushButton extends Button<PushButtonProps> {
   static defaultProps: PushButtonProps = {
-    size: 'regular',
-    type: 'off',
-    disabled: false,
-    style: {},
-    className: '',
-    onClick: undefined
+    ...Button.defaultProps,
+    type: 'off'
   }
-
-  handleClick = (e: React.MouseEvent) => {
-    const { onClick, disabled } = this.props
-    !disabled && onClick && onClick(e)
-  } 
 
   render() {
     const { size, disabled, type, style, className, children } = this.props
+
+    const cls = classNames(
+      className,
+      'push-button',
+      `push-button__${size}`,
+      {
+        'push-button__disabled': disabled,
+        'push-button__on': type === 'on' && !disabled
+      }
+    )
+
     return (
       <button
-        onClick={this.handleClick}
-        className={classNames(
-          className,
-          'push-button',
-          `push-button__${size}`,
-          { 
-            'push-button__disabled': disabled,
-            'push-button__on': type === 'on' && !disabled
-          }
-        )}
+        className={cls}
         style={style}
+        onClick={this.handleClick}
       >
         { children }
       </button>

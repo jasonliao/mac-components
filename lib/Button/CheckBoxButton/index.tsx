@@ -1,77 +1,31 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
+import CheckAndRadio, { CheckAndRadioProps } from '../BaseComponents/CheckAndRadio'
+
 import './index.scss'
 
-export interface CheckBoxButtonProps {
-  size?: 'regular' | 'small' | 'mini'
-  checked?: boolean
-  // position?: 'left' | 'right' | 'above' | 'below'
-  style?: object
-  className?: string
-  disabled?: boolean
-  onChange?: (checked: boolean, e: React.MouseEvent) => void
-}
-
-interface State {
-  checked: boolean
-}
-
-// TODO: add mixed status
-export default class CheckBoxButton extends React.Component<CheckBoxButtonProps, State> {
-  static defaultProps: CheckBoxButtonProps = {
-    size: 'regular',
-    checked: undefined,
-    // position: 'left',
-    style: {},
-    className: '',
-    disabled: false,
-    onChange: undefined
-  }
-
-  state: State = {
-    checked: false
-  }
-
-  handleClick = (e: React.MouseEvent) => {
-    const { disabled, onChange, checked } = this.props
-    const hasChecked = this.hasChecked()
-
-    if (!disabled) {
-      if (checked === undefined) {
-        this.setState({ checked: !hasChecked })
-      }
-      onChange && onChange(!hasChecked, e)
-    }
-  }
-
-  hasChecked() {
-    // 如果传了 `props.checked`，则使用
-    // 没有则使用组件内 `state.checked`
-    const { checked: stateChecked } = this.state
-    const { checked } = this.props
-
-    return checked === undefined ? stateChecked : checked 
-  }
-
+export interface CheckBoxButtonProps extends CheckAndRadioProps {}
+export default class CheckBoxButton extends CheckAndRadio<CheckBoxButtonProps> {
   render() {
     const { size, disabled, className, style, children } = this.props
     const hasChecked = this.hasChecked()
 
+    const cls = classNames(
+      className,
+      'checkbox-button',
+      `checkbox-button__${size}`,
+      {
+        'checkbox-button__checked': hasChecked,
+        'checkbox-button__disabled': disabled
+      }
+    )
+
     return (
-      <div className={
-          classNames(
-            className,
-            'checkbox-button',
-            `checkbox-button__${size}`,
-            {
-              'checkbox-button__checked': hasChecked,
-              'checkbox-button__disabled': disabled
-            }
-          )
-        }
-        onClick={this.handleClick}
+      <div
+        className={cls}
         style={style}
+        onClick={this.handleClick}
       >
         <i className="checkbox-button__box"></i>
         <svg viewBox="0 0 8 8">
